@@ -9,6 +9,7 @@ from pyrogram.types import Message
 from KillerXBase import app, CMD_HELP
 from KillerXBase.helper.PyroHelpers import ReplyCheck
 from KillerXBase.helper.utility import split_list
+from KillerXBase.helper.cmd import cmd
 
 
 async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
@@ -19,7 +20,7 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
-@ren.on_message(filters.command(["help", "helpme"], ".") & filters.me)
+@ren.on_message(filters.command(["help", "helpme"], cmd) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -71,7 +72,7 @@ async def module_help(client: Client, message: Message):
             )
 
 
-@ren.on_message(filters.command(["plugins", "modules"], ".") & filters.me)
+@ren.on_message(filters.command(["plugins", "modules"], cmd) & filters.me)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
