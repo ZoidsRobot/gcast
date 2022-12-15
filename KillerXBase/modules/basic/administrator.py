@@ -6,6 +6,7 @@ import asyncio
 
 from pyrogram import filters, enums
 from pyrogram import Client as ren
+from pyrogram import Client
 from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
