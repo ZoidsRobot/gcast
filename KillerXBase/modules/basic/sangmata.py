@@ -9,8 +9,9 @@ from pyrogram import Client as ren
 
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.modules.basic.profile import extract_user
+from KillerXBase.helper.cmd import cmd
 
-@ren.on_message(filters.command(["sg", "sa", "sangmata"], ".") & filters.me)
+@ren.on_message(filters.command(["sg", "sa", "sangmata"], cmd) & filters.me)
 async def sg(client: Client, message: Message):
     args = await extract_user(message)
     lol = await message.edit_text("`Processing...`")
