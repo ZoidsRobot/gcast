@@ -8,6 +8,7 @@ from time import time
 
 from pyrogram import filters, enums
 from pyrogram import Client as ren
+from pyrogram import Client
 from pyrogram.types import Message
 
 from KillerXBase import SUDO_USER
