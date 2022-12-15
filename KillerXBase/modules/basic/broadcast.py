@@ -8,8 +8,7 @@ from requests import get
 
 from KillerXBase import SUDO_USER
 from KillerXBase.modules.help import add_command_help
-from cache.data import GROUP
-from KillerXBase.helper.dev import DEVS
+from KillerXBase.helper.dev import DEVS, GROUP
 NB = GROUP
 
 def get_arg(message: Message):
