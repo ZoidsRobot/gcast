@@ -3,6 +3,7 @@ import asyncio
 from prettytable import PrettyTable
 from pyrogram import enums, filters
 from pyrogram import Client as ren
+from pyrogram imprt Client
 from pyrogram.types import Message
 
 from KillerXBase import app, CMD_HELP
