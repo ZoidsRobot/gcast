@@ -9,7 +9,8 @@ from requests import get
 from KillerXBase import SUDO_USER
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.helper.dev import DEVS, GROUP
-NB = GROUP
+from KillerXBase.helper.cmd import cmd
+BLACKLIST = GROUP
 
 def get_arg(message: Message):
     msg = message.text
@@ -20,7 +21,7 @@ def get_arg(message: Message):
     return " ".join(split[1:])
 
 @ren.on_message(
-    filters.command(["gcast"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["gcast"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
@@ -36,7 +37,7 @@ async def gcast_cmd(client: Client, message: Message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in NB:
+            if chat not in BLACKLIST:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
@@ -53,7 +54,7 @@ async def gcast_cmd(client: Client, message: Message):
 
 
 @ren.on_message(
-    filters.command(["gucast"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["gucast"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def gucast(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
