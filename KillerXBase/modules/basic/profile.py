@@ -13,7 +13,7 @@ from pyrogram.types import Message
 
 from KillerXBase import SUDO_USER
 from KillerXBase.helper.PyroHelpers import ReplyCheck
-
+from KillerXBase.helper.cmd import cmd
 from KillerXBase.modules.help import add_command_help
 
 flood = {}
@@ -85,7 +85,7 @@ async def extract_user(message):
     return (await extract_user_and_reason(message))[0]
 
 @ren.on_message(
-    filters.command(["unblock"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["unblock"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def unblock_user_func(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -118,7 +118,7 @@ async def block_user_func(client: Client, message: Message):
 
 
 @ren.on_message(
-    filters.command(["setname"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["setname"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def setname(client: Client, message: Message):
     tex = await message.reply_text("`Processing . . .`")
@@ -139,7 +139,7 @@ async def setname(client: Client, message: Message):
         )
 
 @ren.on_message(
-    filters.command(["setbio"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["setbio"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def set_bio(client: Client, message: Message):
     tex = await message.edit_text("`Processing . . .`")
@@ -157,7 +157,7 @@ async def set_bio(client: Client, message: Message):
 
 
 @ren.on_message(
-    filters.command(["setpfp"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["setpfp"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def set_pfp(client: Client, message: Message):
     replied = message.reply_to_message
@@ -183,7 +183,7 @@ async def set_pfp(client: Client, message: Message):
 
 
 @ren.on_message(
-    filters.command(["vpfp"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["vpfp"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def view_pfp(client: Client, message: Message):
     user_id = await extract_user(message)
