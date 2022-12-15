@@ -6,7 +6,7 @@ from KillerXBase.modules.help import *
 from pyrogram.methods import messages
 from .pmguard import get_arg, denied_users
 
-from KillerXBase.database.pmpermitdb as KillerXBase
+import KillerXBase.database.pmpermitdb as KillerXBase
 
 
 
