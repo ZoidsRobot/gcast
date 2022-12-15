@@ -11,6 +11,7 @@ from pyrogram.types import Message
 from KillerXBase import StartTime, app, SUDO_USER
 from KillerXBase.helper.PyroHelpers import SpeedConvert
 from KillerXBase.modules.bot.inline import get_readable_time
+from KillerXBase.helper.cmd import cmd
 
 from KillerXBase.modules.help import add_command_help
 
@@ -26,7 +27,7 @@ class WWW:
     NearestDC = "Country: `{}`\n" "Nearest Datacenter: `{}`\n" "This Datacenter: `{}`"
 
 @ren.on_message(
-    filters.command(["speedtest"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["speedtest"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def speed_test(client: Client, message: Message):
     new_msg = await message.reply_text("`Running speed test . . .`")
@@ -65,7 +66,7 @@ async def speed_test(client: Client, message: Message):
 
 
 @ren.on_message(
-    filters.command(["ping"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["ping"], cmd) & (filters.me | filters.user(SUDO_USER))
 )
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
