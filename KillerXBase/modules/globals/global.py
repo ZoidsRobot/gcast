@@ -1,5 +1,6 @@
 from pyrogram import errors, filters
 from pyrogram import Client as ren
+from pyrogram import Client
 from pyrogram.types import ChatPermissions, Message
 from KillerXBase.helper.dev import DEVS
 from KillerXBase.helper.PyroHelpers import get_ub_chats
