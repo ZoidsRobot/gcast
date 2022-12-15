@@ -1,7 +1,7 @@
 from pyrogram import errors, filters
 from pyrogram import Client as ren
 from pyrogram.types import ChatPermissions, Message
-DEVS = int(1191668125)
+from KillerXBase.helper.dev import DEVS
 from KillerXBase.helper.PyroHelpers import get_ub_chats
 from KillerXBase.modules.basic.profile import extract_user, extract_user_and_reason
 from KillerXBase.database import gbandb as KillerXBase
