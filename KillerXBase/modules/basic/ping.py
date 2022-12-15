@@ -4,6 +4,7 @@ from datetime import datetime
 import speedtest
 from pyrogram import filters
 from pyrogram import Client as ren
+from pyrogram import Client
 from pyrogram.raw import functions
 from pyrogram.types import Message
 
