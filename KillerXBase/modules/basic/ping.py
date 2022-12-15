@@ -88,7 +88,7 @@ async def pingme(client: Client, message: Message):
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :**"
         f"`{uptime}` \n"
-        f"** ▹  Oᴡɴᴇʀ   :** `{client.me.mention}` \n" % (duration))
+        f"** ▹  Oᴡɴᴇʀ   :** `{client.me.mention}` \n" % (duration)
     )
 
 
