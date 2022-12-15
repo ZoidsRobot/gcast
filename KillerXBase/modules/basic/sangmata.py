@@ -4,7 +4,7 @@ from pyrogram import *
 from pyrogram import filters
 from pyrogram.errors import YouBlockedUser
 from pyrogram.types import *
-from pyrogram Client as ren
+from pyrogram import Client as ren
 
 
 from KillerXBase.modules.help import add_command_help
