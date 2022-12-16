@@ -17,6 +17,9 @@
    If one of the members misuses this repository, we are forced to ban you
    Never ever abuse this repository
 ``` 
+## Railway App
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/9Me5Kj?referralCode=NzLfjZ)
+
 ## Tutorial VPS
 ```console
 Rendy@Ubuntu~ $ sudo apt update && sudo apt upgrade -y && sudo apt-get install -y curl git npm screen ffmpeg && sudo apt-get install python3-pip -y
