@@ -45,7 +45,7 @@ async def sg(client: Client, message: Message):
 
 
 add_command_help(
-    "sangmata",
+    "Sangmata",
     [
         [
             "sg [reply/userid/username]",

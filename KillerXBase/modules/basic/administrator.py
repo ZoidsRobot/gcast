@@ -329,7 +329,7 @@ async def demote(client: Client, message: Message):
 
 
 add_command_help(
-    "admin",
+    "Admin",
     [
         ["ban [reply/username/userid]", "Ban someone."],
         [
