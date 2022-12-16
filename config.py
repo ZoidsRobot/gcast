@@ -17,11 +17,6 @@ ALIVE_TEXT = getenv("ALIVE_TEXT")
 PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = getenv("LOG_GROUP","")
 
-REPO_URL = getenv(
-    "REPO_URL",
-    who("aHR0cHM6Ly9naXRodWIuY29tL1RlYW1LaWxsZXJYL0tpbGxlclgtQmFzZQ==").decode("utf-8"),
-)
-
 BRANCH = getenv("BRANCH", "beta") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
