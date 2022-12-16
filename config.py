@@ -1,6 +1,7 @@
 from os import getenv
 from dotenv import load_dotenv
 from base64 import b64decode as who
+from KillerXBase.helper.error import *
 
 load_dotenv("config.env")
 
@@ -15,7 +16,6 @@ ALIVE_PIC = getenv("ALIVE_PIC")
 ALIVE_TEXT = getenv("ALIVE_TEXT")
 PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = getenv("LOG_GROUP","")
-GIT_TOKEN = getenv("GIT_TOKEN") 
 
 REPO_URL = getenv(
     "REPO_URL",
