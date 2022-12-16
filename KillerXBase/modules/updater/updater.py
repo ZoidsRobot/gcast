@@ -25,7 +25,8 @@ from pyrogram import Client as ren
 from pyrogram import Client
 from pyrogram.types import Message
 
-from config import GIT_TOKEN, REPO_URL, BRANCH
+from config import *
+from KillerXBase.helper.error import *
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 
