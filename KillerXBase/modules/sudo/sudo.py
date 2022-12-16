@@ -90,7 +90,7 @@ async def gmute_user(client: Client, message: Message):
 
 
 add_command_help(
-    "sudos",
+    "Sudo",
     [
         [
             "addsudo <reply/username/userid>",
