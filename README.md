@@ -17,7 +17,18 @@
    If one of the members misuses this repository, we are forced to ban you
    Never ever abuse this repository
 ``` 
+## Tutorial VPS
+```console
+Rendy@Ubuntu~ $ sudo apt update && sudo apt upgrade -y && sudo apt-get install -y curl git npm screen ffmpeg && sudo apt-get install python3-pip -y
+Rendy@Ubuntu~ $ git clone https://github.com/TeamKillerX/KillerX-Base && cd KillerX-Base
+Rendy@Ubuntu~ $ pip3 install -r req *
+Rendy@Ubuntu~ $ cp sample_config.env config.env
+Rendy@Ubuntu~ $ nano config.env
+Rendy@Ubuntu~ $ screen -S base 
+Rendy@Ubuntu~ $ python3 -m KillerXBase
 
+# ctrl a + d 
+```
 ## Credits
 - [KillerX-Base](https://github.com/TeamKillerX/KillerX-Base)
 - [Zaid-Userbot](https://github.com/ITZ-ZAID/ZAID-USERBOT)
