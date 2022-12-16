@@ -92,10 +92,52 @@ async def pingme(client: Client, message: Message):
         f"** ▹  Oᴡɴᴇʀ   :** `{client.me.mention}` \n" % (duration)
     )
 
+# credits @xtsea
+
+@ren.on_message(
+    filters.command(["fck"], cmd) & (filters.me | filters.user(SUDO_USER))
+)
+async def pingme_2(client: Client, message: Message):
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    xx = await message.reply_text("**0% ▒▒▒▒▒▒▒▒▒▒**")
+    try:
+       await message.delete()
+    except:
+       pass
+    await xx.edit(".                       /¯ )")
+    await xx.edit(".                       /¯ )\n                      /¯  /")
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /"
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸"
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ "
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')"
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')\n         \\                        /"
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')\n         \\                        /\n          \\                _.•´"
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')\n         \\                        /\n          \\                _.•´\n            \\              ("
+    )
+    await xx.edit(
+        ".                       /¯ )\n                      /¯  /\n                    /    /\n              /´¯/'   '/´¯¯`•¸\n          /'/   /    /       /¨¯\\ \n        ('(   (   (   (  ¯~/'  ')\n         \\                        /\n          \\                _.•´\n            \\              (\n              \\  "
+    )
+
+
 
 add_command_help(
-    "ping",
+    "Ping",
     [
         ["ping", "Check bot alive or not."],
+        ["fck", "Check fucking."],
     ],
 )
