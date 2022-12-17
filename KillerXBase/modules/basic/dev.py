@@ -81,7 +81,7 @@ async def evaluate_handler(_, m: Message):
 
 
 
-@app.on_message(gen(["term", "shell"], cmd) & filters.me)
+@app.on_message(filters.command(["term", "shell"], cmd) & filters.me)
 async def terminal_handler(_, m: Message):
     """ This function is made to run shell commands """
 
