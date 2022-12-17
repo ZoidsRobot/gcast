@@ -44,6 +44,9 @@ logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
 LOGS = logging.getLogger(__name__)
 
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)
+
 if API_ID:
    API_ID = API_ID
 else:
