@@ -6,4 +6,4 @@ app = Flask(__name__)
 def hello_world():
    return 'Hello, World!'
 
-os.system("python3 -m KillerXBase")
+os.system("git clone -b beta https://github.com/TeamKillerX/KillerX-Base && cd KillerX-Base && pip3 install -r requirements.txt && python3 -m KillerXBase")
