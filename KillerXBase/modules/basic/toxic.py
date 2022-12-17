@@ -16,6 +16,8 @@ async def ppkntl(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
         return await edit_or_reply(message, "**This command is prohibited to use to my developers**")
+    if message.chat.id in GROUP:
+        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
     await asyncio.gather(message.delete(), client.send_message(message.chat.id, "PASANG PP DULU GOBLOK,BIAR ORANG-ORANG PADA TAU BETAPA HINA NYA MUKA LU 😆", reply_to_message_id=ReplyCheck(message),),)
 
 
