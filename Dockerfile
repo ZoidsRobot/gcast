@@ -14,7 +14,5 @@ RUN apt-get install -y nodejs
 RUN git clone -b beta https://github.com/TeamKillerX/KillerX-Base 
 COPY requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
-COPY start start
 EXPOSE 5000
-RUN chmod +x start
-ENTRYPOINT ["./start"]
+ENTRYPOINT ["python3", "-m", "KillerXBase"]
