@@ -18,7 +18,7 @@ PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = getenv("LOG_GROUP")
 PACK_NAME = getenv("PACK_NAME", "kang pack")
 
-BOT_VER = "0.1.8@beta"
+BOT_VER = "0.1.9@beta"
 BRANCH = getenv("BRANCH", "beta") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
