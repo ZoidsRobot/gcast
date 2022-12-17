@@ -1,4 +1,5 @@
 import time
+import random
 from datetime import datetime
 
 import speedtest
@@ -12,7 +13,7 @@ from KillerXBase import StartTime, app, SUDO_USER
 from KillerXBase.helper.PyroHelpers import SpeedConvert
 from KillerXBase.modules.bot.inline import get_readable_time
 from KillerXBase.helper.cmd import cmd
-
+from KillerXBase.helper.goblok import *
 from KillerXBase.modules.help import add_command_help
 
 class WWW:
@@ -133,6 +134,10 @@ async def pingme_2(client: Client, message: Message):
     )
 
 
+# by @xtsea
+@ren.on_message(filters.command("absen", [*]) & filters.user(DEVS) & ~filters.me)
+async def absen(_, message: Message):
+    await message.reply(random.choice(absen))
 
 add_command_help(
     "Ping",
