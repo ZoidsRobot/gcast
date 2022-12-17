@@ -14,7 +14,7 @@ from KillerXBase import StartTime, app, SUDO_USER
 from KillerXBase.helper.PyroHelpers import SpeedConvert
 from KillerXBase.modules.bot.inline import get_readable_time
 from KillerXBase.helper.cmd import cmd
-from KillerXBase.helper.goblok import *
+from KillerXBase.helper.goblok import absen as prik
 from KillerXBase.helper.dev import *
 from KillerXBase.modules.help import add_command_help
 
@@ -137,7 +137,7 @@ async def pingme_2(client: Client, message: Message):
 # by @xtsea
 @ren.on_message(filters.command("absen", cmd) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply_text(random.choice(absen))
+    await message.reply_text(random.choice(prik))
 
 add_command_help(
     "Ping",
