@@ -25,3 +25,10 @@ async def spamban(client: Client, m: Message):
     spambot_msg = response.updates[1].message.id + 1
     status = await client.get_messages(chat_id="SpamBot", message_ids=spambot_msg)
     await wait_msg.edit_text(f"~ {status.text}")
+
+add_command_help(
+    "limited",
+    [
+        ["limit", "Check Limit telegram from @SpamBot."],
+    ],
+)
