@@ -10,7 +10,7 @@ ONLINE_ON = """
 ➠ **Userbot Online** 🔥
 ➠ **Type** `.alive`
 """
-KONTOLMU = ALIVE_PIC
+KONTOLMU = "https://telegra.ph/file/b11505df0cab0b8013798.jpg"
 
 async def start_bot():
     await app.start()
