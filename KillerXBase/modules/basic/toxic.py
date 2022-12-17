@@ -8,6 +8,7 @@ from KillerXBase.helper.basic import *
 from KillerXBase.helper.adminHelpers import *
 from KillerXBase.helper.cmd import *
 from KillerXBase.helper.dev import *
+from KillerXBase.helper.misc import *
 from KillerXBase.modules.help import *
 
 @ren.on_message(filters.command("pp", cmd) & filters.me)
