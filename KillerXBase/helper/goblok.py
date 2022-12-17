@@ -4,6 +4,7 @@ bokep = ""
 bocil = ""
 tiktok = ""
 
+# 
 absen = [
     "**Hadir bang** 😁",
     "**Hadir kak** 😉",
@@ -12,6 +13,17 @@ absen = [
     "**Hadir bro** 😎",
     "**Hadir dick** 🤣",
     "**Hadir kak maap telat** 🥺",
+]
+
+"""
+JANGAN HAPUS DEV && GUA GBAN LU KONTOL
+CREDITS @XTSEA
+"""
+memek = [
+    "**Speed Ultra** `999,999`",
+    "**Speed Slow** `592.802`",
+    "**Speed Power** `819.782`",
+    "**Speed Extreme** `979.848`",
 ]
 
 async def get_readable_time(seconds: int) -> str:
