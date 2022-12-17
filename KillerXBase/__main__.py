@@ -4,7 +4,7 @@ from pyrogram import Client, idle
 from KillerXBase.helper import join
 from KillerXBase.modules import ALL_MODULES
 from KillerXBase import clients, app, ids
-from conifg import *
+from config import *
 
 ONLINE_ON = """
 ➠ Userbot Online 🔥
