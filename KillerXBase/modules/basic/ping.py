@@ -1,5 +1,4 @@
 import time
-import random
 from random import *
 from datetime import datetime
 
@@ -137,7 +136,7 @@ async def pingme_2(client: Client, message: Message):
 # by @xtsea
 @ren.on_message(filters.command("absen", cmd) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply_text(random.choice(prik))
+    await message.reply_text(choice(prik))
 
 add_command_help(
     "Ping",
