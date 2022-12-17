@@ -7,9 +7,11 @@ from KillerXBase import clients, app, ids
 from config import *
 
 ONLINE_ON = """
-➠ Userbot Online 🔥
-➠ Type .alive
+➠ **Userbot Online** 🔥
+➠ **Type** `.alive`
 """
+KONTOLMU = ALIVE_PIC
+
 async def start_bot():
     await app.start()
     print("LOG: Mendirikan Bot token Booting..")
@@ -22,7 +24,7 @@ async def start_bot():
             ex = await cli.get_me()
             await join(cli)
             try:
-                await cli.send_message(LOG_GROUP, ONLINE_ON)
+                await cli.send_photo(LOG_GROUP, photo=KONTOLMU, caption=ONLINE_ON)
             except BaseException:
                 pass
             print(f"Started {ex.first_name} 🛠️")
