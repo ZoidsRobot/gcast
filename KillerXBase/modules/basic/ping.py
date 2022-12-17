@@ -1,5 +1,6 @@
 import time
 import random
+from random import *
 from datetime import datetime
 
 import speedtest
