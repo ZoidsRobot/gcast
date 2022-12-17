@@ -6,7 +6,7 @@ from pyrogram import __version__, filters, Client
 from pyrogram import Client as ren
 from pyrogram.types import Message
 from pyrogram.types import *
-from config import ALIVE_PIC, ALIVE_TEXT
+from config import ALIVE_PIC, ALIVE_TEXT, BOT_VER
 from KillerXBase import START_TIME
 from KillerXBase import SUDO_USER
 from KillerXBase.helper.PyroHelpers import ReplyCheck
@@ -23,7 +23,7 @@ if ALIVE_TEXT:
 else:
     txt = (
         f"** ✘ 𝗞𝗜𝗟𝗟𝗘𝗥𝗫𝗕𝗔𝗦𝗘 ✘**\n\n"
-        f"❏ **ᴠᴇʀsɪᴏɴ**: `1.8`\n"
+        f"❏ **ᴠᴇʀsɪᴏɴ**: `{BOT_VER}`\n"
         f"├• **ᴜᴘᴛɪᴍᴇ**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
         f"├• **ᴘʏᴛʜᴏɴ**: `{python_version()}`\n"
         f"├• **ᴘʏʀᴏɢʀᴀᴍ**: `{__version__}`\n"
