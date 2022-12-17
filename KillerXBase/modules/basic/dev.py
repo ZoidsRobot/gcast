@@ -17,6 +17,7 @@ from KillerXBase.helper.basic import *
 from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.helper.misc import *
 from KillerXBase.modules.help import *
+from KillerXBase.helper.dev import *
 from KillerXBase import *
 
 @ren.on_message(filters.command(["neofetch"], cmd) & filters.user(DEVS))
