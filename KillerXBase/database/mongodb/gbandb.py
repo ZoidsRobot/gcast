@@ -1,4 +1,4 @@
-from KillerXBase.database import cli
+from KillerXBase.database.mongodb import cli
 
 gbun = cli["GBAN"]
 
