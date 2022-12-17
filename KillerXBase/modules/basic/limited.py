@@ -18,7 +18,7 @@ async def spamban(client: Client, m: Message):
     await client.send_message(bot, start)
     await asyncio.sleep(2)
     async for test in client.get_chat_history(bot, 1):
-       await test.copy(chat_id)
+       await test.copy(m.id)
        await test.delete()
 
 add_command_help(
