@@ -5,8 +5,8 @@ from pyrogram.types import ChatPermissions, Message
 from KillerXBase.helper.dev import DEVS
 from KillerXBase.helper.PyroHelpers import get_ub_chats
 from KillerXBase.modules.basic.profile import extract_user, extract_user_and_reason
-from KillerXBase.database import gbandb as KillerXBase
-from KillerXBase.database import gmutedb as Gmute
+from KillerXBase.database.mongodb import gbandb as KillerXBase
+from KillerXBase.database.mongodb import gmutedb as Gmute
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.helper.cmd import *
 
