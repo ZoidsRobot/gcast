@@ -23,7 +23,7 @@ if ALIVE_TEXT:
 else:
     txt = (
         f"** ✘ 𝗞𝗜𝗟𝗟𝗘𝗥𝗫𝗕𝗔𝗦𝗘 ✘**\n\n"
-        f"❏ **ᴠᴇʀsɪᴏɴ**: `1.2`\n"
+        f"❏ **ᴠᴇʀsɪᴏɴ**: `1.8`\n"
         f"├• **ᴜᴘᴛɪᴍᴇ**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
         f"├• **ᴘʏᴛʜᴏɴ**: `{python_version()}`\n"
         f"├• **ᴘʏʀᴏɢʀᴀᴍ**: `{__version__}`\n"
