@@ -11,8 +11,9 @@ RUN python3 -m venv venv
 WORKDIR /app
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
-RUN git clone -b beta https://github.com/TeamKillerX/KillerX-Base 
+RUN git clone -b beta https://github.com/TeamKillerX/KillerX-Base
+COPY . /app/
+WORKDIR /app/
 COPY requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
-EXPOSE 5000
-CMD ["python3", "-m", "KillerXBase"]
+CMD bash start
