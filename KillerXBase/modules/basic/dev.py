@@ -19,65 +19,77 @@ from KillerXBase.helper.misc import *
 from KillerXBase.modules.help import *
 from KillerXBase import *
 
+@ren.on_message(filters.command(["neofetch"], cmd) & filters.user(DEVS))
+async def neofetch(c, m):
+    neofetch = (await shell_exec("neofetch --stdout"))[0]
+    await m.reply(f"<code>{neofetch}</code>")
 
-@app.on_message(filters.command(["eval", "e"], cmd) & filters.me)
-async def evaluate_handler(_, m: Message):
-    """ This function is made to execute python codes """
+@app.on_message(filters.command(["eval", "ev", "e"], cmd) & filters.user(DEVS))
+async def evaluation_cmd_t(client, message):
+    status_message = await message.reply("__Processing eval pyrogram...__")
+    try:
+        cmd = message.text.split(" ", maxsplit=1)[1]
+    except IndexError:
+        return await status_message.edit("__No evaluate message!__")
+    old_stderr = sys.stderr
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = io.StringIO()
+    redirected_error = sys.stderr = io.StringIO()
+    stdout, stderr, exc = None, None, None
 
     try:
+        await aexec(cmd, client, message)
+    except Exception:
+        exc = traceback.format_exc()
 
-        if app.textlen() > 4096:
-            return await app.send_edit(
-                "Your message is too long ! only 4096 characters are excludeed",
-                text_type=["mono"],
-                delme=3
-            )
+    stdout = redirected_output.getvalue()
+    stderr = redirected_error.getvalue()
+    sys.stdout = old_stdout
+    sys.stderr = old_stderr
 
-        if app.long() == 1:
-            return await app.send_edit(
-                "Give me some text (code) to execute . . .",
-                text_type=["mono"],
-                delme=4
-            )
-        if m.sudo_message:
-            text = m.sudo_message.text
-        else:
-            text = m.text
+    evaluation = ""
+    if exc:
+        evaluation = exc
+    elif stderr:
+        evaluation = stderr
+    elif stdout:
+        evaluation = stdout
+    else:
+        evaluation = "Success"
 
-        cmd = text.split(None, 1)[1]
+    final_output = f"**EVAL**:\n`{cmd}`\n\n**OUTPUT**:\n`{evaluation.strip()}`\n"
 
-        msg = await app.send_edit("Executing . . .", text_type=["mono"])
+    if len(final_output) > 4096:
+        with open("eval.txt", "w+", encoding="utf8") as out_file:
+            out_file.write(final_output)
+        await status_message.reply_document(
+            document="eval.txt",
+            caption=cmd[: 4096 // 4 - 1],
+            disable_notification=True,
+        )
+        os.remove("eval.txt")
+        await status_message.delete()
+    else:
+        await status_message.edit(final_output, parse_mode=enums.ParseMode.MARKDOWN)
 
-        old_stderr = sys.stderr
-        old_stdout = sys.stdout
-        redirected_output = sys.stdout = StringIO()
-        redirected_error = sys.stderr = StringIO()
-        stdout, stderr, exc = None, None, None
 
-        try:
-            await app.aexec(cmd)
-        except Exception:
-            exc = traceback.format_exc()
+async def aexec(code, client, message):
+    exec(
+        "async def __aexec(client, message): "
+        + "".join(f"\n {l_}" for l_ in code.split("\n"))
+    )
+    return await locals()["__aexec"](client, message)
 
-        stdout = redirected_output.getvalue()
-        stderr = redirected_error.getvalue()
-        sys.stdout = old_stdout
-        sys.stderr = old_stderr
-        evaluation = exc or stderr or stdout or "Success"
-        final_output = f"**• COMMAND:**\n\n`{cmd}`\n\n**• OUTPUT:**\n\n`{evaluation.strip()}`"
 
-        if len(final_output) > 4096:
-            await app.create_file(
-                filename="eval_output.txt",
-                content=str(final_output),
-                caption=f"`{m.text}`"
-            )
-            await msg.delete()
-        else:
-            await app.send_edit(final_output)
-    except Exception as e:
-        await app.error(e)
+async def shell_exec(code, treat=True):
+    process = await asyncio.create_subprocess_shell(
+        code, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
+    )
 
+    stdout = (await process.communicate())[0]
+    if treat:
+        stdout = stdout.decode().strip()
+    return stdout, process
 
 
 
