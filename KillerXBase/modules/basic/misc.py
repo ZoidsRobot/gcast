@@ -13,6 +13,7 @@ from KillerXBase.helper.PyroHelpers import ReplyCheck
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.modules.bot.inline import get_readable_time
 from KillerXBase.helper.cmd import cmd
+from .helper.error import *
 
 alive_logo = ALIVE_PIC or "https://telegra.ph/file/a94dcc334d0b82985a4d7.jpg"
 
@@ -29,7 +30,7 @@ else:
         f"├• **ᴘʏʀᴏɢʀᴀᴍ**: `{__version__}`\n"
         f"├• **sᴜᴘᴘᴏʀᴛ**: [Click](https://t.me/pantekyks)\n"
         f"├• **ᴄʜᴀɴɴᴇʟ**: [Click](t.me/RendyProjects)\n"
-        f"└• **ʀᴇᴘᴏ**: [Click](https://GitHub.com/TeamKillerX/KillerX-Base)"        
+        f"└• **ʀᴇᴘᴏ**: [Click]({REPO_URL})"        
     )
 
 @ren.on_message(
@@ -63,7 +64,7 @@ async def repo(bot: Client, message: Message):
     await asyncio.sleep(1)
     await message.edit("Fetching Source Code.....")
     await asyncio.sleep(1)
-    await message.edit("[Here is repo](https://github.com/TeamKillerX/KillerXBase)")
+    await message.edit("[Here is repo]({REPO_URL})")
 
 
 @ren.on_message(filters.command("creator", cmd) & filters.me)
