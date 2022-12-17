@@ -19,8 +19,8 @@ PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = int(getenv("LOG_GROUP", ""))
 PACK_NAME = getenv("PACK_NAME", "kang pack")
 
-BOT_VER = "0.1.9@beta"
-BRANCH = getenv("BRANCH", "beta") #don't change
+BOT_VER = "0.2.0@dev"
+BRANCH = getenv("BRANCH", "dev") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", None)
