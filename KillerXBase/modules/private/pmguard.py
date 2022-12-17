@@ -4,8 +4,8 @@ import asyncio
 from pyrogram.types import Message 
 
 from pyrogram.methods import messages
-from KillerXBase.database.pmpermitdb import get_approved_users, pm_guard
-import KillerXBase.database.pmpermitdb as KillerXBase
+from KillerXBase.database.mongodb.pmpermitdb import get_approved_users, pm_guard
+import KillerXBase.database.mongodb.pmpermitdb as KillerXBase
 from config import LOG_GROUP, PM_LOGGER
 FLOOD_CTRL = 0
 ALLOWED = []
