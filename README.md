@@ -17,6 +17,9 @@
    If one of the members misuses this repository, we are forced to ban you
    Never ever abuse this repository
 ``` 
+## Deploy to Okteto
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/TeamKillerX/KillerX-Base)
+
 ## Railway App
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/9Me5Kj?referralCode=NzLfjZ)
 
