@@ -14,6 +14,7 @@ from KillerXBase.helper.PyroHelpers import SpeedConvert
 from KillerXBase.modules.bot.inline import get_readable_time
 from KillerXBase.helper.cmd import cmd
 from KillerXBase.helper.goblok import *
+from KillerXBase.helper.dev import *
 from KillerXBase.modules.help import add_command_help
 
 class WWW:
