@@ -3,10 +3,6 @@ import io
 import os
 import sys
 import traceback
-
-from pyrogram import filters, Client
-from pyrogram.types import Message
-
 from KillerXBase.database import cli as database
 from pyrogram.types import *
 from pyrogram import *
