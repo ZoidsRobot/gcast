@@ -66,10 +66,8 @@ async def speed_test(client: Client, message: Message):
     )
 
 
-
-@ren.on_message(
-    filters.command(["ping"], cmd) & (filters.me | filters.user(SUDO_USER))
-)
+@ren.on_message(filters.command("cping", cmd) & filters.user(DEVS) & ~filters.me)
+@ren.on_message(filters.command(["ping"], cmd) & (filters.me | filters.user(SUDO_USER)))
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -138,7 +136,7 @@ async def pingme_2(client: Client, message: Message):
 # by @xtsea
 @ren.on_message(filters.command("absen", cmd) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply(absen)
+    await message.reply("**Hadir!**")
 
 add_command_help(
     "Ping",
