@@ -4,7 +4,12 @@ from pyrogram import Client, idle
 from KillerXBase.helper import join
 from KillerXBase.modules import ALL_MODULES
 from KillerXBase import clients, app, ids
+from conifg import *
 
+ONLINE_ON = """
+➠ Userbot Online 🔥
+➠ Type .alive
+"""
 async def start_bot():
     await app.start()
     print("LOG: Mendirikan Bot token Booting..")
@@ -18,6 +23,8 @@ async def start_bot():
             await join(cli)
             print(f"Started {ex.first_name} 🛠️")
             ids.append(ex.id)
+            try:
+                await cli.send_message(LOG_GROUP, ONLINE_ON)
         except Exception as e:
             print(f"{e}")
     await idle()
