@@ -15,4 +15,4 @@ RUN git clone -b beta https://github.com/TeamKillerX/KillerX-Base
 COPY requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
 EXPOSE 5000
-ENTRYPOINT ["python3", "-m", "KillerXBase"]
+CMD ["python3", "-m", "KillerXBase"]
