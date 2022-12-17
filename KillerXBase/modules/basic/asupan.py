@@ -18,6 +18,8 @@ from KillerXBase.helper.dev import *
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.via_bot) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
 async def asupan(client: Client, message: Message):
+    if message.chat.id in -1001554560763:
+        return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
     ren = await edit_or_reply(message, "`Wait a moment...`")
     await gather(
         ren.delete(),
