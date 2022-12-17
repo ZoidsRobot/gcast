@@ -7,6 +7,7 @@ from KillerXBase.helper.cmd import *
 from KillerXBase.helper.basic import *
 from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.helper.misc import *
+from KillerXBase.modules.help import *
 
 @ren.on_message(filters.command(["tt", "tiktok", "ig", "sosmed"], cmd) & filters.me)
 async def sosmed(client: Client, message: Message):
