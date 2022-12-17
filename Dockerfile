@@ -7,4 +7,4 @@ RUN mkdir /root/TeamKillerX
 WORKDIR /root/TeamKillerX
 RUN pip3 install --upgrade pip setuptools 
 RUN pip3 install -r https://raw.githubusercontent.com/TeamKillerX/KillerX-Base/beta/requirements.txt
-CMD ["python3", -m, "KillerXBase"]
+CMD ["python3", "-m", "KillerXBase"]
