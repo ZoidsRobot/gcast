@@ -13,7 +13,7 @@ from KillerXBase.helper.PyroHelpers import ReplyCheck
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.modules.bot.inline import get_readable_time
 from KillerXBase.helper.cmd import cmd
-from .helper.error import *
+from KillerXBase.helper.error import *
 
 alive_logo = ALIVE_PIC or "https://telegra.ph/file/a94dcc334d0b82985a4d7.jpg"
 
