@@ -14,6 +14,7 @@ async def spamban(client: Client, m: Message):
     await client.unblock_user("spambot")
     start = "/start"
     bot = "@spambot"
+    chat_id = message.chat.id
     await client.send_message(bot, start)
     await asyncio.sleep(2)
     async for test in client.get_chat_history(bot, 1):
