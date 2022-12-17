@@ -103,7 +103,7 @@ async def set_chat_photo(client: Client, message: Message):
         await message.edit_text("Reply to a photo to set it !")
 
 
-@ren.on_message(filters.group & filters.command("cban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.group & filters.command("cban", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.group & filters.command("ban", cmd) & filters.me)
 async def member_ban(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
@@ -139,7 +139,7 @@ async def member_ban(client: Client, message: Message):
     await rd.edit(msg)
 
 
-@ren.on_message(filters.group & filters.command("cunban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.group & filters.command("cunban", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.group & filters.command("unban", cmd) & filters.me)
 async def member_unban(client: Client, message: Message):
     reply = message.reply_to_message
@@ -163,7 +163,7 @@ async def member_unban(client: Client, message: Message):
     await rd.edit(f"Unbanned! {umention}")
 
 
-
+@ren.on_message(filters.group & filters.command(["cpin", "cunpin"], cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command(["pin", "unpin"], cmd) & filters.me)
 async def pin_message(client: Client, message):
     if not message.reply_to_message:
@@ -185,7 +185,7 @@ async def pin_message(client: Client, message):
         disable_web_page_preview=True,
     )
 
-@ren.on_message(filters.command("cmute", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("cmute", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command("mute", cmd) & filters.me)
 async def mute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
@@ -212,7 +212,7 @@ async def mute(client: Client, message: Message):
     await rd.edit(msg)
 
 
-@ren.on_message(filters.group & filters.command("cunmute", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.group & filters.command("cunmute", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.group & filters.command("unmute", cmd) & filters.me)
 async def unmute(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -226,7 +226,7 @@ async def unmute(client: Client, message: Message):
     umention = (await client.get_users(user_id)).mention
     await rd.edit(f"Unmuted! {umention}")
 
-@ren.on_message(filters.command(["ckick", "dkick"], cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command(["ckick", "dkick"], cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command(["kick", "dkick"], cmd) & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
@@ -258,7 +258,7 @@ async def kick_user(client: Client, message: Message):
     except ChatAdminRequired:
         return await rd.edit("**Maaf Anda Bukan admin**")
 
-@ren.on_message(filters.group & filters.command(["cpromote", "cfullpromote"], cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.group & filters.command(["cpromote", "cfullpromote"], cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.group & filters.command(["promote", "fullpromote"], cmd) & filters.me)
 async def promotte(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -300,7 +300,7 @@ async def promotte(client: Client, message: Message):
     )
     await rd.edit(f"Promoted! {umention}")
 
-@ren.on_message(filters.group & filters.command("cdemote", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.group & filters.command("cdemote", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.group & filters.command("demote", cmd) & filters.me)
 async def demote(client: Client, message: Message):
     user_id = await extract_user(message)
