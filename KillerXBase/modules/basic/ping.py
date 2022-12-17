@@ -138,7 +138,7 @@ async def pingme_2(client: Client, message: Message):
 # by @xtsea
 @ren.on_message(filters.command("absen", cmd) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply(random.choice(absen))
+    await message.reply(len(random.choice(absen)))
 
 add_command_help(
     "Ping",
