@@ -6,7 +6,7 @@ import re
 import traceback
 import subprocess
 from io import StringIO
-from KillerXBase.database import cli as database
+from KillerXBase.database.mongodb import cli as database
 from pyrogram.types import *
 from pyrogram import *
 from pyrogram import Client as ren
