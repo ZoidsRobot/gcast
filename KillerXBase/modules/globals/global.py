@@ -59,7 +59,7 @@ async def gban_user(client: Client, message: Message):
     msg += f"\n**Affected To:** `{done}` **Chats**"
     await ex.edit(msg)
 
-@ren.on_message(filters.command("cgban", cmd) & filters.user(DEVS) & ~filters.via_bot)
+@ren.on_message(filters.command("cungban", cmd) & filters.user(DEVS) & ~filters.via_bot)
 @ren.on_message(filters.command("ungban", cmd) & filters.me)
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
