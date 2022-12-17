@@ -24,6 +24,8 @@ async def gban_user(client: Client, message: Message):
         return await ex.edit("saya tidak dapat menemukan pengguna itu")
     if user_id == client.me.id:
         return await ex.edit("**oke tentu**")
+    if user_id == 5540782540:
+        return await ex.edit("**Oh My God**")
     if user_id in DEVS:
         return await ex.edit("**Developer My Master**")
     if user_id:
