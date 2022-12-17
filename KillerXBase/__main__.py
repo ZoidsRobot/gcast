@@ -21,10 +21,12 @@ async def start_bot():
             await cli.start()
             ex = await cli.get_me()
             await join(cli)
-            print(f"Started {ex.first_name} 🛠️")
-            ids.append(ex.id)
             try:
                 await cli.send_message(LOG_GROUP, ONLINE_ON)
+            except BaseException:
+                pass
+            print(f"Started {ex.first_name} 🛠️")
+            ids.append(ex.id)
         except Exception as e:
             print(f"{e}")
     await idle()
