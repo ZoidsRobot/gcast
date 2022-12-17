@@ -30,6 +30,7 @@ from pyrogram.types import Message
 from KillerXBase.helper.PyroHelpers import ReplyCheck
 from KillerXBase.modules.help import add_command_help
 from KillerXBase.helper.cmd import *
+from config import *
 
 async def add_text_img(image_path, text):
     font_size = 12
@@ -218,7 +219,7 @@ async def kang(client: Client, message: Message):
         else:
             await um.edit("**Unsupported Files**")
             return
-        media_ = await client.download_media(replied, file_name="ProjectMan/resources/")
+        media_ = await client.download_media(replied, file_name="resources/")
     else:
         await um.edit("**Please Reply to Photo/GIF/Sticker Media!**")
         return
@@ -243,7 +244,7 @@ async def kang(client: Client, message: Message):
         u_name = user.username
         u_name = "@" + u_name if u_name else user.first_name or user.id
         packname = f"Sticker_u{user.id}_v{pack}"
-        custom_packnick = f"{u_name} Sticker Pack"
+        custom_packnick = f"{PACK_NAME} by {u_name}"
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = "/newpack"
         if resize:
