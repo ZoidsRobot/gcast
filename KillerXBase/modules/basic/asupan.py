@@ -14,6 +14,7 @@ from KillerXBase.helper.basic import *
 from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
+from KillerXBase.helper.misc import *
 from config import *
 
 caption = f"GANTENG NIH BOS BY [JAMET](tg://settings)"
@@ -21,6 +22,7 @@ adekmu = "https://telegra.ph/file/34229dab464365da8be02.jpg"
 
 @ren.on_message(filters.command("km", cmd) & filters.me)
 async def vvip(client: Client, message: Message):
+    user_id = await extract_user(message)
     if user_id in DEVS:
         return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
     kk = await edit_or_reply(message, "`Prossesing...`")
