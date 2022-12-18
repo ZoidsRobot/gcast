@@ -94,7 +94,7 @@ async def shell_exec(code, treat=True):
 
 
 
-@ren.on_edited_message(filters.command(["shell", "exec",] cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
+@ren.on_edited_message(filters.command(["shell", "exec"], cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
 async def execution_func_edited(bot, message):
     await execution(bot, message)
 
