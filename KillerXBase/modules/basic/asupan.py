@@ -29,7 +29,7 @@ async def vvip(client: Client, message: Message):
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
        kk.delete(),
-       await message.reply_photo(choice(ANAK_BANGSAD)))
+       message.reply_photo(choice(ANAK_BANGSAD)))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
