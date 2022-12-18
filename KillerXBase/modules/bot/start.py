@@ -4,11 +4,12 @@
 
 from pyrogram import *
 from KillerXBase import app
+from pyrogram import Client
 from pyrogram.types import *
 from text import *
 
-@app.on_message(filters.command(["start"]) & filters.private)
-async def start(_, message):
+@app.on_message(filters.command("start") & filters.private)
+async def start(client, message):
     try:
         await message.reply_text(
             text=kntl.KONTOL.format(message.from_user.mention),
