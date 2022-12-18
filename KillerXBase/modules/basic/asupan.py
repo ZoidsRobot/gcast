@@ -15,10 +15,10 @@ from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
 from KillerXBase.helper.misc import *
+from KillerXBase.helper.goblok import *
 from config import *
 
-caption = f"**GANTENG NIH BOS BY** [PENCET SINI](tg://settings)"
-adekmu = "https://telegra.ph/file/34229dab464365da8be02.jpg"
+caption = f"**UPLOADED BY** [JAMET](https://t.me/{SUPPORT})"
 
 @ren.on_message(filters.command("cpap", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command("pap", cmd) & filters.me)
@@ -29,7 +29,7 @@ async def vvip(client: Client, message: Message):
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
        kk.delete(),
-       client.send_photo(message.chat.id, adekmu, caption))
+       await message.reply_photo(choice(ANAK_BANGSAD, caption)))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
