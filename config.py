@@ -19,7 +19,7 @@ PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = int(getenv("LOG_GROUP", ""))
 PACK_NAME = getenv("PACK_NAME", "kang pack")
 
-CHANNEL = "@RendyProjects"
+CHANNEL = "RendyProjects"
 
 BOT_VER = "0.2.0@dev"
 BRANCH = getenv("BRANCH", "dev") #don't change
