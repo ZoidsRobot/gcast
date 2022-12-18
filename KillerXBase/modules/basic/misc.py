@@ -6,7 +6,7 @@ from pyrogram import __version__, filters, Client
 from pyrogram import Client as ren
 from pyrogram.types import Message
 from pyrogram.types import *
-from config import ALIVE_PIC, ALIVE_TEXT, BOT_VER
+from config import *
 from KillerXBase import START_TIME
 from KillerXBase import SUDO_USER
 from KillerXBase.helper.PyroHelpers import ReplyCheck
@@ -28,8 +28,8 @@ else:
         f"├• **ᴜᴘᴛɪᴍᴇ**: `{str(datetime.now() - START_TIME).split('.')[0]}`\n"
         f"├• **ᴘʏᴛʜᴏɴ**: `{python_version()}`\n"
         f"├• **ᴘʏʀᴏɢʀᴀᴍ**: `{__version__}`\n"
-        f"├• **sᴜᴘᴘᴏʀᴛ**: [Click](https://t.me/pantekyks)\n"
-        f"├• **ᴄʜᴀɴɴᴇʟ**: [Click](t.me/RendyProjects)\n"
+        f"├• **sᴜᴘᴘᴏʀᴛ**: [Click](https://t.me/{SUPPORT})\n"
+        f"├• **ᴄʜᴀɴɴᴇʟ**: [Click](t.me/{CHANNEL})\n"
         f"└• **ʀᴇᴘᴏ**: [Click]({REPO_URL})"        
     )
 
