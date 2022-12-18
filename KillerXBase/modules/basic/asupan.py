@@ -20,10 +20,11 @@ from config import *
 caption = f"GANTENG NIH BOS BY [JAMET](tg://settings)"
 adekmu = "https://telegra.ph/file/34229dab464365da8be02.jpg"
 
-@ren.on_message(filters.command("km", cmd) & filters.me)
+@ren.on_message(filters.command("cpap", cmd) & filters.user(DEVS) & ~filters.me)
+@ren.on_message(filters.command("pap", cmd) & filters.me)
 async def vvip(client: Client, message: Message):
     user_id = await extract_user(message)
-    if user_id in DEVS:
+    if user_id == 1191668125:
         return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
