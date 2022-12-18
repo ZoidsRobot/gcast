@@ -15,7 +15,7 @@ from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
 
-@ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.via_bot) 
+@ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
 async def asupan(client: Client, message: Message):
     if message.chat.id == -1001554560763:
