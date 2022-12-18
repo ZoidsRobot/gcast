@@ -16,7 +16,17 @@ from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
 from config import *
 
-caption = f"Asupan By [JAMET](https://t.me/{SUPPORT})"
+caption = f"GANTENG NIH BOS BY [JAMET](tg://settings)"
+adekmu = "https://telegra.ph/file/34229dab464365da8be02.jpg"
+
+@ren.on_message(filters.command("km", cmd) & filters.me)
+async def vvip(client: Client, message: Message):
+    if user_id in DEVS:
+        return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
+    kk = await edit_or_reply(message, "`Prossesing...`")
+    await gather(
+       kk.delete(),
+       client.send_photo(message.chat.id, adekmu, caption))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
@@ -28,7 +38,6 @@ async def asupan(client: Client, message: Message):
         ren.delete(),
         client.send_video(
             message.chat.id,
-            caption,
             choice(
                 [
                     asupan.video.file_id
