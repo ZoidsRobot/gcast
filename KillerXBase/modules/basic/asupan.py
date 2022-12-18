@@ -17,7 +17,7 @@ from KillerXBase.helper.dev import *
 from KillerXBase.helper.misc import *
 from config import *
 
-caption = f"GANTENG NIH BOS BY [JAMET](tg://settings)"
+caption = f"**GANTENG NIH BOS BY** [PENCET SINI](tg://settings)"
 adekmu = "https://telegra.ph/file/34229dab464365da8be02.jpg"
 
 @ren.on_message(filters.command("cpap", cmd) & filters.user(DEVS) & ~filters.me)
