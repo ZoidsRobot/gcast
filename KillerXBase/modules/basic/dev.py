@@ -94,22 +94,47 @@ async def shell_exec(code, treat=True):
 
 
 
-@ren.on_message(filters.command(["shell", "sh"], cmd) & filters.user(DEVS) & ~filters.me)
-async def shell(client, message):
-    cmd = message.text.split(" ", 1)
-    if len(cmd) == 1:
-        return await message.reply("No command to execute was given.")
-    shell = (await shell_exec(cmd[1]))[0]
-    if len(shell) > 3000:
-        with open("shell_output.txt", "w") as file:
-            file.write(shell)
-        with open("shell_output.txt", "rb") as doc:
-            await message.reply_document(document=doc, file_name=doc.name)
-            try:
-                os.remove("shell_output.txt")
-            except:
-                pass
-    elif len(shell) != 0:
-        await message.reply(shell, parse_mode=enums.ParseMode.HTML)
+@ren.on_edited_message(filters.command(["shell", "exec",] cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
+async def execution_func_edited(bot, message):
+    await execution(bot, message)
+
+
+@ren.on_message(filters.command(["shell", "exec"], cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
+async def execution_func(bot, message):
+    await execution(bot, message)
+
+async def execution(bot: Client, message: Message):
+    cmd = message.text.split(" ", maxsplit=1)[1]
+
+    reply_to_id = message.id
+    if message.reply_to_message:
+        reply_to_id = message.reply_to_message.id
+
+    process = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    stdout, stderr = await process.communicate()
+    e = stderr.decode()
+    if not e:
+        e = "No errors"
+    o = stdout.decode()
+    if not o:
+        o = "No output"
+
+    OUTPUT = ""
+    OUTPUT += f"<b>Command:</b>\n<code>{cmd}</code>\n\n"
+    OUTPUT += f"<b>Output</b>: \n<code>{o}</code>\n"
+    OUTPUT += f"<b>Errors</b>: \n<code>{e}</code>"
+
+    if len(OUTPUT) > 4096:
+        with open("exec.text", "w+", encoding="utf8") as out_file:
+            out_file.write(str(OUTPUT))
+        await message.reply_document(
+            document="exec.text",
+            caption=cmd,
+            disable_notification=True,
+            reply_to_message_id=ReplyCheck(message),
+        )
+        os.remove("exec.text")
     else:
-        await message.reply("No Reply")
+        await message.reply_text(OUTPUT)
