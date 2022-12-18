@@ -26,6 +26,9 @@ memek = [
     "**Speed Extreme** `979.848`",
 ]
 
+ANAK_BANGSAD = [
+    "https://telegra.ph/file/34229dab464365da8be02.jpg"
+
 async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
