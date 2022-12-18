@@ -14,6 +14,9 @@ from KillerXBase.helper.basic import *
 from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
+from config import *
+
+caption = f"Asupan By [JAMET](https://t.me/{SUPPORT})"
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
@@ -25,6 +28,7 @@ async def asupan(client: Client, message: Message):
         ren.delete(),
         client.send_video(
             message.chat.id,
+            caption,
             choice(
                 [
                     asupan.video.file_id
