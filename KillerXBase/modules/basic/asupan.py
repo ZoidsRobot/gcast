@@ -27,7 +27,7 @@ async def vvip(client: Client, message: Message):
     if user_id == 1191668125:
         return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
     kk = await edit_or_reply(message, "`Prossesing...`")
-    async for mek in client.send_photo(message.chat.id):
+    async for mek in client.send_photo(message.chat.id, photo=ANAK_BANGSAD):
         await mek.ANAK_BANGSAD[1]
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
