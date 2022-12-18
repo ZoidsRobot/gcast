@@ -22,14 +22,14 @@ caption = f"**UPLOADED BY** [JAMET](https://t.me/{SUPPORT})"
 
 @ren.on_message(filters.command("cpap", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command("pap", cmd) & filters.me)
-async def vvip(client: Client, message: Message):
+async def vvip(client: Client, m, message: Message):
     user_id = await extract_user(message)
     if user_id == 1191668125:
         return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
        kk.delete(),
-       message.reply_photo(choice(ANAK_BANGSAD)))
+       client.send_photo(choice(m.id, ANAK_BANGSAD)))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
