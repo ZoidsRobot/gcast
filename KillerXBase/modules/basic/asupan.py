@@ -3,7 +3,6 @@
 # code by @pySmartDL
 # Create by @xtsea
 
-import random
 from asyncio import *
 from random import *
 from pyrogram import *
@@ -30,7 +29,7 @@ async def vvip(client: Client, message: Message):
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
        kk.delete(),
-       client.send_photo(message.chat.id, (random.choice(ANAK_BANGSAD))))
+       client.send_photo(message.chat.id, ANAK_BANGSAD[1]))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
 @ren.on_message(filters.command(["asupan"], cmd) & filters.me)
