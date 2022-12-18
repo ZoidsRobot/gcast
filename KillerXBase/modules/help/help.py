@@ -1,16 +1,16 @@
 import asyncio
 
-from prettytable import PrettyTable
-from pyrogram import enums, filters
+from prettytable import *
+from pyrogram import *
 from pyrogram import Client as ren
 from pyrogram import Client
 from pyrogram.types import Message
 
 from KillerXBase import app, CMD_HELP
-from KillerXBase.helper.PyroHelpers import ReplyCheck
-from KillerXBase.helper.utility import split_list
-from KillerXBase.helper.cmd import cmd
-
+from KillerXBase.helper.PyroHelpers import *
+from KillerXBase.helper.utility import *
+from KillerXBase.helper.cmd import *
+from config import *
 
 async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     xyz = (
@@ -47,7 +47,7 @@ async def module_help(client: Client, message: Message):
                 ac.add_row([x[0], x[1] if len(x) >= 2 else None])
             xx = await client.send_message(
                 message.chat.id,
-                f"```{str(ac)}```\n• @RendyProjects × @pantekyks •",
+                f"```{str(ac)}```\n• @{CHANNEL} × @{SUPPORT} •",
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
@@ -61,7 +61,7 @@ async def module_help(client: Client, message: Message):
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @RendyProjects"
+            this_command += "© @{CHANNEL}"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -88,7 +88,7 @@ async def module_helper(client: Client, message: Message):
         for x in split_list(sorted(CMD_HELP.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
         await edit_or_reply(
-            message, f"```{str(ac)}```\n• @RendyProjects × @pantekyks •"
+            message, f"```{str(ac)}```\n• @{CHANNEL} × @{SUPPORT} •"
         )
         await message.reply(
             f"**Usage**:`.help broadcast` **To View Module details**"
@@ -100,7 +100,7 @@ async def module_helper(client: Client, message: Message):
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @RendyProjects"
+            this_command += "© @{CHANNEL}"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
