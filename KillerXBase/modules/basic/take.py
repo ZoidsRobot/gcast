@@ -16,6 +16,7 @@ async def take(client: Client, message: Message):
     bot = "SangMataInfo_bot"
     if link:
         try:
+           await lol.delete()
            a = await client.send_message(bot, link)
            await asyncio.sleep(3)
            await a.delete()
