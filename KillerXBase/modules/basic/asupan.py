@@ -59,7 +59,7 @@ async def asupan(client: Client, message: Message):
 async def bokep(client: Client, message: Message):
     if message.chat.id in GROUP:
         return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
-    await client.join_chat("https://t.me/+cd9CHf-u-lI3Mzhh")
+    await client.join_chat(ANAK_ANJING)
     await asyncio.sleep(2)
     kontol = await edit_or_reply(message, "wait a minute send a porn video")
     await gather(
