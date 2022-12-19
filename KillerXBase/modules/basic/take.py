@@ -23,7 +23,7 @@ async def take(client: Client, message: Message):
            await a.delete()
         except YouBlockedUser:
             await client.unblock_user(bot)
-           b = await client.send_message(bot, link)
+            b = await client.send_message(bot, link)
             await asyncio.sleep(2)
             await b.delete()
     async for i in client.get_chat_history(bot, 1):
