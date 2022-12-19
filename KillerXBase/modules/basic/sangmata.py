@@ -68,6 +68,11 @@ async def sg2(client: Client, message: Message):
     async for i in client.get_chat_history(bot2, 3):
         await i.copy(message.chat.id)
         await i.delete()
+        try:
+           async for f in client.search_messages(message.chat.id, query="Note"):
+               await f.delete()
+        except BaseException:
+            pass
 
 add_command_help(
     "Sangmata",
