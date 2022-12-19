@@ -64,7 +64,7 @@ async def repo(bot: Client, message: Message):
     await asyncio.sleep(1)
     await message.edit("Fetching Source Code.....")
     await asyncio.sleep(1)
-    await message.edit(f"[Here is repo]({REPO_URL})")
+    await message.edit(f"[Here is repo]({REPO_URL})", disable_web_page_preview=True)
 
 
 @ren.on_message(filters.command("creator", cmd) & filters.me)
