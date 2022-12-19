@@ -9,14 +9,21 @@ from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.helper.misc import *
 from KillerXBase.modules.help import *
 
-@ren.on_message(filters.command("take", cmd) & filters.me)
+@ren.on_message(filters.command(["take", cmd) & filters.me)
 async def take(client: Client, message: Message):
-    c = await message.edit("`Prossing...`")
+    lol = await message.edit("`Prossing...`")
     link = get_arg(message)
+    bot = "SangMataInfo_bot"
     if link:
         try:
-           await c.delete()
-           await client.copy_message(message.chat.id, from_chat_id="RendyProjects", message_id=link)
-        except BaseException:
-            pass
-     
+           a = await client.send_message(bot, link)
+           await asyncio.sleep(3)
+           await a.delete()
+        except YouBlockedUser:
+            await client.unblock_user(bot)
+            b = await client.send_message(bot, link)
+            await asyncio.sleep(5)
+            await b.delete()
+    async for i in client.get_chat_history(bot, 1):
+        await i.copy(message.chat.id)
+        await i.delete()
