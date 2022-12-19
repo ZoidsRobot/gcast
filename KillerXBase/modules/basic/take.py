@@ -26,6 +26,6 @@ async def take(client: Client, message: Message):
             b = await client.send_message(bot, link)
             await asyncio.sleep(2)
             await b.delete()
-    async for i in client.get_chat_history(bot, 1):
+    async for i in client.get_chat_history(bot, 3):
         await i.copy(message.chat.id)
         await i.delete()
