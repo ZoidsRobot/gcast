@@ -1,8 +1,10 @@
 # LU MAU BOKEP GAK ? 🤣
 
-bokep = ""
+bokep = "https://t.me/+R-oIEJKFZ0pkYzgx"
 bocil = ""
 tiktok = ""
+
+ANAK_ANJING = bokep
 
 # 
 absen = [
@@ -26,9 +28,7 @@ memek = [
     "**Speed Extreme** `979.848`",
 ]
 
-ANAK_BANGSAD = [
-    "https://telegra.ph/file/872dbe33a146dce3f843e.jpg"
-]
+ANAK_BANGSAD = "https://telegra.ph/file/872dbe33a146dce3f843e.jpg"
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -55,5 +55,3 @@ async def get_readable_time(seconds: int) -> str:
     up_time += ":".join(time_list)
 
     return up_time
-
-# BAYAR 25K PC @xtsea
