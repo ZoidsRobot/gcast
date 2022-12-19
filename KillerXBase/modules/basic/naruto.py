@@ -12,7 +12,7 @@ from KillerXBase.helper.dev import *
 from KillerXBase.helper.misc import *
 from KillerXBase.helper.goblok import *
 
-@ren.on_message(filters.commamd("naruto", cmd) & filters.me)
+@ren.on_message(filters.command("naruto", cmd) & filters.me)
 async def naruto(client: Client, message: Message):
     await client.send_sticker(message.chat.id, "CAACAgIAAx0EXYGnZgACgv9joHVJOT943wxKO-DRZ9ZimQYTtwACOwAD9PRuF1nL4v7O2YZqHgQ")
     await asyncio.sleep(1.5)
