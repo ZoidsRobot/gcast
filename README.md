@@ -17,7 +17,54 @@
    If one of the members misuses this repository, we are forced to ban you
    Never ever abuse this repository
 ``` 
-## Deploy to Okteto
+## Tutorial Coding Pyrogram
+<details> 
+<summary>How to create new file</summary>
+
+  - View code 
+  - Click 3 dots 
+  - Select create new files
+
+<img src="./resources/coding.jpg" alt="details">
+
+- try use `test.py`
+```python
+import asyncio
+from pyrogram import Client as ren
+from pyrogram.types import *
+from pyrogram import Client
+from KillerXBase.helper.basic import *
+from KillerXBase.helper.adminHelpers import *
+from KillerXBase.helper.cmd import *
+from KillerXBase.helper.dev import *
+from KillerXBase.helper.misc import *
+from KillerXBase.modules.help import *
+
+@ren.on_message(filters.command("test", cmd) & filters.me)
+async def test(client: Client, message: Message):
+    await asyncio.gather(message.delete(), client.send_message(message.chat.id, "**hello World"*", reply_to_message_id=ReplyCheck(message),),)
+
+
+add_command_help(
+    "test",
+    [
+        ["test", "Hello World"],
+    ],
+)
+```
+
+</details>
+
+## Deploy On KillerXBase
+
+<details> 
+<summary>See Click</summary>
+
+## Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://killerxbase.vercel.app/)
+
+## Cloud Okteto
 [![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/TeamKillerX/KillerX-Base)
 
 ## Railway App
@@ -35,6 +82,9 @@ Rendy@Ubuntu~ $ python3 -m KillerXBase
 
 # ctrl a + d 
 ```
+
+</details> 
+
 ## Credits
 - [KillerX-Base](https://github.com/TeamKillerX/KillerX-Base)
 - [Zaid-Userbot](https://github.com/ITZ-ZAID/ZAID-USERBOT)
