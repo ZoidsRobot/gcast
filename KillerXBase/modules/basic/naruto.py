@@ -38,3 +38,24 @@ async def naruto(client: Client, message: Message):
     await asyncio.sleep(1)
     await p.delete()
     await client.send_photo(message.chat.id, "https://telegra.ph/file/78c05f1d42e16c61990ca.jpg")
+
+@ren.on_message(filters.command("rasengan", cmd) & filters.me)
+async def naruto2(client: Client, message: Message):
+    peler = await edit_or_reply(message, "**Hey You!**")
+    await peler.edit("Hey You!")
+    await asyncio.sleep(1)
+    await peler.edit("Im Naruto Uzumaki And Im The Hokage Of Hidden Leaf Village!")
+    await asyncio.sleep(3)
+    await peler.edit("You Are Gonna Pay For What You Did!")
+    await asyncio.sleep(2)
+    await peler.edit("(Ξ｀Д´)🌀)))Rasengan！！！")
+    await asyncio.sleep(1)
+    await peler.edit("You: ( ✖╭╮✖ )")
+
+add_command_help(
+    "animation",
+    [
+        ["naruto", "attack naruto"],
+        ["rasengan", "hey i kill you"],
+    ],
+)
