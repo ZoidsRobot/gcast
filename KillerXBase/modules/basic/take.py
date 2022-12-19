@@ -9,7 +9,7 @@ from KillerXBase.helper.PyroHelpers import *
 from KillerXBase.helper.misc import *
 from KillerXBase.modules.help import *
 
-@ren.on_message(filters.command(["take", cmd) & filters.me)
+@ren.on_message(filters.command("take", cmd) & filters.me)
 async def take(client: Client, message: Message):
     c = await message.edit("`Prossing...`")
     link = get_arg(message)
