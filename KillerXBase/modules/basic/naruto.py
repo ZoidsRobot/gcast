@@ -14,10 +14,10 @@ from KillerXBase.helper.goblok import *
 
 @ren.on_message(filters.command("naruto", cmd) & filters.me)
 async def naruto(client: Client, message: Message):
-    await client.send_sticker(message.chat.id, "CAACAgIAAx0EXYGnZgACgv9joHVJOT943wxKO-DRZ9ZimQYTtwACOwAD9PRuF1nL4v7O2YZqHgQ")
-    await asyncio.sleep(1.5)
+    yesus = await client.send_sticker(message.chat.id, "CAACAgIAAx0EXYGnZgACgv9joHVJOT943wxKO-DRZ9ZimQYTtwACOwAD9PRuF1nL4v7O2YZqHgQ")
     try:
-       await message.delete()
+       awiat asyncio.sleep(1.5)
+       await yesus.delete()
     except BaseException:
         pass
     await client.send_photo(message.chat.id, "https://user-images.githubusercontent.com/90479255/208452872-b6067a9c-43c2-4171-9e2f-bc1bc09208c7.jpg")
