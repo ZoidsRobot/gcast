@@ -92,3 +92,7 @@ Rendy@Ubuntu~ $ python3 -m KillerXBase
 
 ## library 
 - [Pyrogram](https://github.com/pyrogram)
+
+## Donation
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.buymeacoffee.com/randydev)
