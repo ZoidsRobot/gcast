@@ -20,8 +20,8 @@ LOG_GROUP = int(getenv("LOG_GROUP", ""))
 PACK_NAME = getenv("PACK_NAME", "kang pack")
 
 # don't kanger repo this !!!
-CHANNEL = "RendyProjects"
-SUPPORT = "pantekyks"
+CHANNEL = "@RendyProjects"
+SUPPORT = "@pantekyks"
 
 BOT_VER = "0.2.0@dev"
 BRANCH = getenv("BRANCH", "dev") #don't change
