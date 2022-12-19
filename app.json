@@ -1,0 +1,56 @@
+{
+  "name": "KillerXBase",
+  "description": "KillerXBase is a modular telegram userbot that runs on python3 with the Pyrogram library",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "Get api id from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get api hash my.telegram.org",
+      "required": true
+    },
+    "STRING_SESSION1": {
+      "description": "Get pyrogram >> @VegetaSessionBot",
+      "required": true
+    },
+    "LOG_GROUP": {
+      "description": "Log Group -10012345xxx",
+      "required": true
+    }
+    "PACK_NAME": {
+      "description": "sticker kang pack",
+      "value": "kang pack",
+      "required": false
+    }
+    "CHANNEL": {
+      "description": "telegram channels without @",
+      "value": "RendyProjects",
+      "required": false
+    }
+    "MONGO_URL": {
+      "description": "Get mongo >> mongodb.com",
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
