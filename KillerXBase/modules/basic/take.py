@@ -16,7 +16,7 @@ async def take(client: Client, message: Message):
     if link:
         try:
            await c.delete()
-           await client.copy_message(message.chat.id, from_chat_id="RendyProjects", link)
+           await client.copy_message(message.chat.id, from_chat_id="RendyProjects", message_id=link)
         except BaseException:
             pass
      
