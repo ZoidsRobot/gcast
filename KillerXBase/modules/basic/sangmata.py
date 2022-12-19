@@ -51,18 +51,22 @@ async def sg(client: Client, message: Message):
 @ren.on_message(filters.command("sgs", cmd) & filters.me)
 async def sg2(client: Client, message: Message):
     lol = await message.edit("`Prossing...`")
-    link2 = get_arg(message)
+    args2 = await extract_user(message)
+    try:
+       user2 = await client.get_users(args2)
+    except BaseException:
+        pass
     bot2 = "SangMataInfo_bot"
     if link2:
         try:
            await asyncio.sleep(2)
            await lol.delete()
-           a = await client.send_message(bot2, link2)
+           a = await client.send_message(bot2, f"/search_id {user2.id}")
            await asyncio.sleep(3)
            await a.delete()
         except YouBlockedUser:
             await client.unblock_user(bot2)
-            b = await client.send_message(bot2, link2)
+            b = await client.send_message(bot2, f"/search_id {user2.id}")
             await asyncio.sleep(2)
             await b.delete()
     async for i in client.get_chat_history(bot2, 3):
@@ -78,6 +82,6 @@ add_command_help(
     "Sangmata",
     [
         [f"sg [reply/userid/username]", "Its help uh to find someone name history."],
-        [f"sgs /search_id userid", "check sangmata."],
+        [f"sgs userid", "check sangmata."],
     ],
 )
