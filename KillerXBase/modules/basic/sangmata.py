@@ -53,7 +53,7 @@ async def sg2(client: Client, message: Message):
     lol = await message.edit("`Prossing...`")
     link2 = get_arg(message)
     bot2 = "SangMataInfo_bot"
-    if link:
+    if link2:
         try:
            await asyncio.sleep(2)
            await lol.delete()
@@ -73,6 +73,6 @@ add_command_help(
     "Sangmata",
     [
         [f"sg [reply/userid/username]", "Its help uh to find someone name history."],
-        [f"sgs /search userid", "check sangmata."],
+        [f"sgs /search_id userid", "check sangmata."],
     ],
 )
