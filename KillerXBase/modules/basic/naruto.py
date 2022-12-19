@@ -16,7 +16,7 @@ from KillerXBase.helper.goblok import *
 async def naruto(client: Client, message: Message):
     yesus = await client.send_sticker(message.chat.id, "CAACAgIAAx0EXYGnZgACgv9joHVJOT943wxKO-DRZ9ZimQYTtwACOwAD9PRuF1nL4v7O2YZqHgQ")
     try:
-       awiat asyncio.sleep(1.5)
+       await asyncio.sleep(1.5)
        await yesus.delete()
     except BaseException:
         pass
