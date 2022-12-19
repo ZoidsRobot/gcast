@@ -28,7 +28,7 @@ async def vvip(client: Client, message: Message):
         return await edit_or_reply(message, "**This command is prohibited from being used in this my developed**")
     kk = await edit_or_reply(message, "`Prossesing...`")
     await gather(
-        kk.delete()
+        kk.delete(),
         client.send_photo(message.chat.id, ANAK_BANGSAD, caption))
 
 @ren.on_message(filters.command(["casupan"], cmd) & filters.user(DEVS) & ~filters.me) 
