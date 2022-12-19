@@ -43,7 +43,7 @@ async def monito_p_m_s(client: Client, message: Message):
                 )
                 LOG_CHATS_.COUNT = 0
             LOG_CHATS_.NEWPM = await client.send_message(
-                BOTLOG_CHATID,
+                LOG_GROUP,
                 f"💌 <b>#FORWARD #NEW_MESSAGE</b>\n<b> • From :</b> {message.from_user.mention}\n<b> • User ID :</b> <code>{message.from_user.id}</code>",
                 parse_mode=enums.ParseMode.HTML,
             )
