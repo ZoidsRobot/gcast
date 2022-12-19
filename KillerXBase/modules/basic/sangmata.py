@@ -1,15 +1,17 @@
 import asyncio
 
-from pyrogram import *
-from pyrogram import filters
-from pyrogram.errors import YouBlockedUser
+import asyncio
 from pyrogram.types import *
+from pyrogram.errors import *
+from pyrogram import *
 from pyrogram import Client as ren
-
-
-from KillerXBase.modules.help import add_command_help
-from KillerXBase.modules.basic.profile import extract_user
-from KillerXBase.helper.cmd import cmd
+from pyrogram import Client
+from KillerXBase.helper.cmd import *
+from KillerXBase.helper.basic import *
+from KillerXBase.helper.PyroHelpers import *
+from KillerXBase.helper.misc import *
+from KillerXBase.modules.help import *
+from KillerXBase.modules.basic.profile import *
 
 @ren.on_message(filters.command(["sg", "sa", "sangmata"], cmd) & filters.me)
 async def sg(client: Client, message: Message):
@@ -44,12 +46,33 @@ async def sg(client: Client, message: Message):
             await stalk.delete()
 
 
+# testing code by @xtsea
+
+@ren.on_message(filters.command("sgs", cmd) & filters.me)
+async def sg2(client: Client, message: Message):
+    lol = await message.edit("`Prossing...`")
+    link2 = get_arg(message)
+    bot2 = "SangMataInfo_bot"
+    if link:
+        try:
+           await asyncio.sleep(2)
+           await lol.delete()
+           a = await client.send_message(bot2, link2)
+           await asyncio.sleep(3)
+           await a.delete()
+        except YouBlockedUser:
+            await client.unblock_user(bot2)
+            b = await client.send_message(bot2, link2)
+            await asyncio.sleep(2)
+            await b.delete()
+    async for i in client.get_chat_history(bot2, 3):
+        await i.copy(message.chat.id)
+        await i.delete()
+
 add_command_help(
     "Sangmata",
     [
-        [
-            "sg [reply/userid/username]",
-            "Its help uh to find someone name history.",
-        ],
+        [f"sg [reply/userid/username]", "Its help uh to find someone name history."],
+        [f"sgs /search userid", "check sangmata."],
     ],
 )
