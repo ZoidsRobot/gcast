@@ -64,12 +64,12 @@ async def repo(bot: Client, message: Message):
     await asyncio.sleep(1)
     await message.edit("Fetching Source Code.....")
     await asyncio.sleep(1)
-    await message.edit("[Here is repo]({REPO_URL})")
+    await message.edit(f"[Here is repo]({REPO_URL})")
 
 
 @ren.on_message(filters.command("creator", cmd) & filters.me)
 async def creator(bot: Client, message: Message):
-    await message.edit("https://github.com/TeamKillerX")
+    await message.edit(f"Developer By [BOT](https://t.me/xstea)")
 
 
 @ren.on_message(filters.command(["uptime", "up"], cmd) & filters.me)
