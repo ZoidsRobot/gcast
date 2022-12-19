@@ -50,7 +50,7 @@ async def naruto2(client: Client, message: Message):
     await asyncio.sleep(2)
     await peler.edit("(Ξ｀Д´)🌀)))Rasengan！！！")
     await asyncio.sleep(1)
-    await peler.edit("You: ( ✖╭╮✖ )")
+    await peler.edit("You lol: ( ✖╭╮✖ )")
 
 add_command_help(
     "animation",
