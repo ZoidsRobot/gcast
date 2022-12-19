@@ -61,5 +61,7 @@ add_command_help(
     "toxic",
     [
         ["pp", "ngenyek telegram jamet sing ora nganggo foto profil"],
+        ["kont", "ngatain anak kontol"],
+        ["an", "ngatain anak pungut"],
     ],
 )
