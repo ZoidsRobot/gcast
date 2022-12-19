@@ -57,7 +57,7 @@ async def sg2(client: Client, message: Message):
     except BaseException:
         pass
     bot2 = "SangMataInfo_bot"
-    if link2:
+    if args2:
         try:
            await asyncio.sleep(2)
            await lol.delete()
