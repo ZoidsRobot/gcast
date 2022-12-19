@@ -54,7 +54,7 @@ async def toxic1(client: Client, message: Message):
 async def toxic2(client: Client, message: Message):
     user_id = await extract_user(message)
     if user_id in DEVS:
-        return await edit_or_reply(message, "")
+        return await edit_or_reply(message, "**This command is prohibited to use to my developers**")
     await asyncio.gather(message.delete(), client.send_message(message.chat.id, "**LO KAN HASIL ZINAH HASIL HUB TERLARANG NAH LO DI BUANG DI TONGSAMPAH NAH MAK LO YG SKRG KASIAN SAMA LO MKNY DI PUNGUT UDH LO CACAT KAKI CACAT TANGAN CACAT MUKA CACAT SEMUAHNY PARAH BET SI KONTOL LO JUGA CACATAN PASTI NANAHAN JUGA,UDH MENDING LO BUNDIR DEH JADI BEBAN ORG DOANG BEGO NGERUGIN MASYARKAT BEGO BOCAH HINA BOCAH HARAM BOCAH AUTIS KEK LO MENDING MATI AJA**", reply_to_message_id=ReplyCheck(message),),)
 
 add_command_help(
