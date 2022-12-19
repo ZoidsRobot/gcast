@@ -63,7 +63,7 @@ async def bokep(client: Client, message: Message):
        await client.join_chat(ANAK_ANJING)
     except BaseException:
         pass
-    await asyncio.sleep(2)
+    await asyncio.sleep(1.5)
     kontol = await edit_or_reply(message, "wait a minute send a porn video")
     await gather(
         kontol.delete(),
