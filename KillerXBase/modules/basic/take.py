@@ -16,15 +16,16 @@ async def take(client: Client, message: Message):
     bot = "SangMataInfo_bot"
     if link:
         try:
+           await asyncio.sleep(2)
            await lol.delete()
            a = await client.send_message(bot, link)
            await asyncio.sleep(3)
            await a.delete()
         except YouBlockedUser:
             await client.unblock_user(bot)
-            b = await client.send_message(bot, link)
+           b = await client.send_message(bot, link)
             await asyncio.sleep(2)
             await b.delete()
-    async for i in client.get_chat_history(bot, 2):
+    async for i in client.get_chat_history(bot, 1):
         await i.copy(message.chat.id)
         await i.delete()
