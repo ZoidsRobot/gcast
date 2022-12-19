@@ -1,6 +1,5 @@
 import asyncio
 import importlib
-import uvloop
 from pyrogram import Client, idle
 from KillerXBase.helper import join
 from KillerXBase.modules import ALL_MODULES
@@ -34,6 +33,5 @@ async def start_bot():
             print(f"{e}")
     await idle()
 
-uvloop.install()
 loop = asyncio.get_event_loop()
 loop.run_until_complete(start_bot())
