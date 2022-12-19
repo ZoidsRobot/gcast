@@ -83,6 +83,21 @@ Rendy@Ubuntu~ $ python3 -m KillerXBase
 # ctrl a + d 
 ```
 
+## Heroku Manual Linux
+```console
+Rendy@Ubuntu~ $ git clone example-app
+Rendy@Ubuntu~ $ cd example-app
+Rendy@Ubuntu~ $ heroku login
+Rendy@Ubuntu~ $ heroku create --region eu appname # create app in eu region, common regions: eu, us
+Rendy@Ubuntu~ $ heroku buildpacks:set heroku/python # set python buildpack
+Rendy@Ubuntu~ $ git push heroku master # deploy app to heroku
+Rendy@Ubuntu~ $ heroku config:set EXAMPLE_BOT=123456789 # set config vars, insert your own
+                ...
+Rendy@Ubuntu~ $ heroku ps:scale example=1 # start bot dyno
+Rendy@Ubuntu~ $ heroku logs --tail # If for some reason it’s not working, check the logs
+Rendy@Ubuntu~ $ heroku ps:stop example # stop bot dyno
+```
+
 </details> 
 
 ## Credits
