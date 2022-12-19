@@ -6,4 +6,4 @@ RUN git clone -b dev https://github.com/TeamKillerX/KillerX-Base /root/TeamKille
 WORKDIR /root/TeamKillerX
 RUN pip3 install --upgrade pip setuptools 
 RUN pip3 install -r https://raw.githubusercontent.com/TeamKillerX/KillerX-Base/beta/requirements.txt
-CMD ["python3", "-m", "KillerXBase"]
+CMD bash start
