@@ -20,7 +20,7 @@ from KillerXBase.modules.help import *
 from KillerXBase.helper.dev import *
 from KillerXBase import *
 
-@ren.on_message(filters.command(["neofetch"], cmd) & filters.user(DEVS) & filters.me)
+@ren.on_message(filters.command(["neofetch"], cmd) & filters.me)
 async def neofetch(c, m):
     neofetch = (await shell_exec("neofetch --stdout"))[0]
     await m.reply(f"<code>{neofetch}</code>")
