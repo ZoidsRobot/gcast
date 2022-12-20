@@ -134,7 +134,7 @@ async def absen(_, message: Message):
 # by @xtsea
 @ren.on_message(filters.command("cspd", cmd) & filters.user(DEVS) & ~filters.me)
 @ren.on_message(filters.command("spd", cmd) & filters.me)
-async def absen(_, message: Message):
+async def absen2(_, message: Message):
     await message.reply_text(choice(memek))
 
 add_command_help(
