@@ -19,7 +19,7 @@ async def readpm(client: Client, message: Message):
     p = await message.edit("`Prossingg....`")
     read = get_arg(message)
     try:
-       asyncio.sleep(1.5)
+       await asyncio.sleep(1.5)
        await p.delete()
        async for r in client.get_chat_history(read, read):
            await r.copy(message.chat.id)
