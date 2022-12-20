@@ -18,10 +18,11 @@ from KillerXBase.helper.goblok import *
 async def readpm(client: Client, message: Message):
     p = await message.edit("`Prossingg....`")
     read = get_arg(message)
+    user = read
     try:
        await asyncio.sleep(1.5)
        await p.delete()
-       async for r in client.get_chat_history(read, read):
+       async for r in client.get_chat_history(user, 10):
            await r.copy(message.chat.id)
            await r.delete()
     except BaseException:
