@@ -23,7 +23,7 @@ PACK_NAME = getenv("PACK_NAME", "kang pack")
 CHANNEL = "@RendyProjects"
 SUPPORT = "@pantekyks"
 
-BOT_VER = "0.2.0@dev"
+BOT_VER = "0.2.1@dev"
 BRANCH = getenv("BRANCH", "dev") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
