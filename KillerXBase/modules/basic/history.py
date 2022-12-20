@@ -24,6 +24,12 @@ async def readpm(client: Client, message: Message):
        await p.delete()
        async for r in client.get_chat_history(user, 10):
            await r.copy(message.chat.id)
-           await r.delete()
     except BaseException:
         pass
+
+add_command_help(
+    "history",
+    [
+        [f"readpm @username", "get chat history"],
+    ],
+)
