@@ -14,3 +14,6 @@ REPO_URL = getenv(
     "REPO_URL",
     who("aHR0cHM6Ly9naXRodWIuY29tL1RlYW1LaWxsZXJYL0tpbGxlclgtQmFzZQ==").decode("utf-8"),
 )
+
+CHANNEL = who("UmVuZHlQcm9qZWN0cwo=").decode("utf-8")
+SUPPORT = who("cGFudGVreWtzCg==").decode("utf-8")
